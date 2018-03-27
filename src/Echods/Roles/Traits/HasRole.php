@@ -28,12 +28,12 @@ trait HasRole {
     }
 
     /**
-     * Assign role to user
+     * Attach role to user
      *
      * @param $name
      * @return Boolean|Object
      */
-    public function assignRole($name)
+    public function attachRole($name)
     {
         if($this->hasRole($name)) {
             return false;
