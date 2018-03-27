@@ -1,0 +1,26 @@
+{
+    "name": "echods/roles",
+    "description": "Roles and permissions for application",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Isaac Castillo",
+            "email": "icemancast@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/echods/Roles"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                // "Echods\\Roles\\": "packages/echods/roles/src"
+                "Echods\\Roles\\RoleServiceProvider"
+            ]
+        }
+    }
+}
