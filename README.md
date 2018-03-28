@@ -58,3 +58,18 @@ class User extends Authenticatable
 ```
 
 ## Usage
+
+### Checking Roles
+
+You can check roles of a user by using the following naming scheme
+
+```
+$user = User::find(1);
+$user->isEditor();  // if 'editor' is a role in config. Returns a boolean
+```
+
+Alternatively you can do the follow:
+
+```
+$user->hasRole('editor');
+```

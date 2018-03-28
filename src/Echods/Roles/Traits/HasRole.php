@@ -13,7 +13,7 @@ trait HasRole {
      */
     public function roles()
     {
-        return $this->belongsToMany('Echods\Roles\Models\Role');
+        return $this->belongsToMany('Echods\Roles\Models\Role')->withTimestamps();
     }
 
     /**
@@ -26,6 +26,23 @@ trait HasRole {
     {
         return $this->roles->contains('name', $name);
     }
+
+    /**
+     * Check if user has role
+     *
+     * @param $name
+     * @return Boolean
+     */
+    // public function hasRoles(Array $roles)
+    // {
+    //     $roles = collect($roles);
+    //     $falsey = $roles->each(function ($item, $key) {
+    //         if( ! $this->roles->contains('name', $item) ) {
+    //             return false;
+    //         }
+    //     });
+    //     return true;
+    // }
 
     /**
      * Attach role to user
@@ -57,5 +74,19 @@ trait HasRole {
             return $this->roles()->detach($role);
         }
         return false;
+    }
+
+    /**
+     * Call dynamic method to check role
+     *
+     * @return Boolean
+     */
+    public function __call($method, $arguments)
+    {
+        if(starts_with($method, 'is')) {
+            $role = strtolower(substr($method, 2));
+            return $this->hasRole($role);
+        }
+        return parent::__call($method, $arguments);
     }
 }
