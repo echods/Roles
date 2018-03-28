@@ -33,16 +33,17 @@ trait HasRole {
      * @param $name
      * @return Boolean
      */
-    // public function hasRoles(Array $roles)
-    // {
-    //     $roles = collect($roles);
-    //     $falsey = $roles->each(function ($item, $key) {
-    //         if( ! $this->roles->contains('name', $item) ) {
-    //             return false;
-    //         }
-    //     });
-    //     return true;
-    // }
+    public function hasRoles(Array $roles)
+    {
+        sort($roles);
+
+        $userRoles = $this->roles
+            ->pluck('name')
+            ->sort()
+            ->toArray();
+
+        return $roles == $userRoles;
+    }
 
     /**
      * Attach role to user

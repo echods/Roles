@@ -61,15 +61,29 @@ class User extends Authenticatable
 
 ### Checking Roles
 
-You can check roles of a user by using the following naming scheme
+You can check roles of a user from the list of roles you have in the config. For example if you have roles `admin`, `editor`, `employee` then you can do the following. Returns boolean.
 
 ```
 $user = User::find(1);
-$user->isEditor();  // if 'editor' is a role in config. Returns a boolean
+$user->isAdmin();
+$user->isEditor();
+$user->isEmployee();
 ```
 
 Alternatively you can do the follow:
 
 ```
 $user->hasRole('editor');
+```
+
+## Checking for multiple roles
+
+Checking if a user has multiple roles
+
+```
+$user->hasRoles(['admin', 'editor']);
+
+// or
+
+$user->hasRoles(['editor', 'admin']);
 ```
