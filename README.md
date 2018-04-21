@@ -1,5 +1,11 @@
 # Echods Roles
 
+## Installing the package
+
+```
+composer require echods/roles
+```
+
 Laravel based roles for Laravel 5.6
 
 ## Publish config file
@@ -86,4 +92,10 @@ $user->hasRoles(['admin', 'editor']);
 // or
 
 $user->hasRoles(['editor', 'admin']);
+```
+
+## Attaching a role
+
+```
+$user->attachRole('superAdmin');
 ```
