@@ -27,7 +27,6 @@ class RoleServiceProvider extends ServiceProvider
 
             $this->commands([
                 GenerateRoles::class
-                // BarCommand::class,
             ]);
         }
     }
