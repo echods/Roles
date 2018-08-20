@@ -13,6 +13,11 @@ trait HasRole {
      */
     public function roles()
     {
+         if($this->table) {
+            $joiner = "role_" . Str::singular($this->table);
+            $fk = Str::singular($this->table) . "_id";
+            return $this->belongsToMany('Echods\Roles\Models\Role', $joiner, $fk)->withTimestamps();
+        }
         return $this->belongsToMany('Echods\Roles\Models\Role')->withTimestamps();
     }
 
