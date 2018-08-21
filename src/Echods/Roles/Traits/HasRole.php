@@ -3,6 +3,7 @@
 namespace Echods\Roles\Traits;
 
 use Echods\Roles\Models\Role;
+use Illuminate\Support\Str;
 
 trait HasRole {
 
