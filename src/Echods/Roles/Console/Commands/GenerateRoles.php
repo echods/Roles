@@ -43,5 +43,7 @@ class GenerateRoles extends Command
         foreach($roles as $role) {
             Role::create($role);
         }
+
+        $this->info('Roles have been generated!');
     }
 }
