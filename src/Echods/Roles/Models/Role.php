@@ -4,8 +4,8 @@ namespace Echods\Roles\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model {
-
+class Role extends Model
+{
 
     /**
      * The attributes that are mass assignable.
