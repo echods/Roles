@@ -6,7 +6,7 @@
 composer require echods/roles
 ```
 
-Laravel based roles for Laravel 5.6
+Laravel based roles for Laravel 5.6+ not tested for Laravel 6 yet.
 
 ## Publish config file
 
@@ -16,7 +16,7 @@ $ php artisan vendor:publish --provider="Echods\Roles\RoleServiceProvider" --tag
 
 ## Modify config file to set roles
 
-Add the roles you need for your application and descriptions in the config file
+Add the roles you need for your application and descriptions in the config file. Also change if you would like big integer migrations or note.
 
 ```
 'admin' => [
@@ -27,7 +27,13 @@ Add the roles you need for your application and descriptions in the config file
     'editor' => [
         'name' => 'editor',
         'description' => 'Editor role for all stuff'
-    ],
+    ]
+],
+
+'migrations' => [
+
+    'useBigInteger' => true
+
 ]
 ```
 

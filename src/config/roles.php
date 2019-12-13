@@ -21,6 +21,12 @@ return [
             'name' => 'editor',
             'description' => 'Editor role for all stuff'
         ],
+    ],
+
+    'migrations' => [
+
+        'useBigInteger' => true
+
     ]
 
 ];
