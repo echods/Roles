@@ -90,7 +90,7 @@ trait HasRole {
      */
     public function __call($method, $arguments)
     {
-        if(starts_with($method, 'is')) {
+        if(Str::startsWith($method, 'is')) {
             $role = lcfirst(substr($method, 2));
             return $this->hasRole($role);
         }
