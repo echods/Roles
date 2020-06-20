@@ -1,12 +1,16 @@
 # Echods Roles
 
+Laravel based roles for Laravel 6+.
+
 ## Installing the package
 
 ```
 composer require echods/roles
 ```
 
-Laravel based roles for Laravel 5.6+ not tested for Laravel 6 yet.
+## For Laravel < 5.8
+
+For Laravel version less than 5.8 please use tag branch 0.9.8
 
 ## Publish config file
 
