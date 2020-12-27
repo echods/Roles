@@ -40,8 +40,8 @@ class GenerateRoles extends Command
     {
         $roles = config('roles.all');
 
-        foreach($roles as $role) {
-            Role::create($role);
+        foreach ($roles as $role) {
+            Role::updateOrCreate($role);
         }
 
         $this->info('Roles have been generated!');
