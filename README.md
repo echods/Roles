@@ -86,7 +86,7 @@ $user->isEditor();
 $user->isEmployee();
 ```
 
-Alternatively you can do the follow:
+Alternatively you can do the following:
 
 ```
 $user->hasRole('editor');
