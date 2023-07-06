@@ -1,4 +1,4 @@
-w<?php
+<?php
 
 namespace Echods\Roles\Console\Commands;
 
