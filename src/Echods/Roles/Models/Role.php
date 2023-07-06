@@ -12,7 +12,12 @@ class Role extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['handle', 'description'];
+
+    /**
+     * Add backwards compatibility.
+     */
+    protected $appends = ['name'];
 
     /**
      * The users that belong to the roles.
@@ -22,4 +27,8 @@ class Role extends Model
         return $this->belongsToMany('App\User');
     }
 
+    public function getNameAttribute()
+    {
+        return $this->name;
+    }
 }

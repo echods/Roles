@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix name to be handle instead to conform to standards.
+
 ### Added
 
 - Add the middleware for routing.

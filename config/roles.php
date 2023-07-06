@@ -13,12 +13,12 @@ return [
     'all' => [
 
         [
-            'name' => 'admin',
+            'handle' => 'admin',
             'description' => 'Admin role for all stuff'
         ],
 
         [
-            'name' => 'editor',
+            'handle' => 'editor',
             'description' => 'Editor role for all stuff'
         ],
     ],
