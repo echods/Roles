@@ -25,18 +25,18 @@ trait HasRole {
     /**
      * Check if user has role
      *
-     * @param $name
+     * @param $handle
      * @return Boolean
      */
-    public function hasRole($name)
+    public function hasRole($handle)
     {
-        return $this->roles->contains('name', $name);
+        return $this->roles->contains('handle', $handle);
     }
 
     /**
      * Check if user has role
      *
-     * @param $name
+     * @param $roles
      * @return Boolean
      */
     public function hasRoles(Array $roles)
@@ -44,7 +44,7 @@ trait HasRole {
         sort($roles);
 
         $userRoles = $this->roles
-            ->pluck('name')
+            ->pluck('handle')
             ->sort()
             ->toArray();
 
@@ -54,16 +54,16 @@ trait HasRole {
     /**
      * Attach role to user
      *
-     * @param $name
+     * @param $handle
      * @return Boolean|Object
      */
-    public function attachRole($name)
+    public function attachRole($handle)
     {
-        if($this->hasRole($name)) {
+        if($this->hasRole($handle)) {
             return false;
         }
 
-        $role = Role::where('name', $name)->firstOrFail();
+        $role = Role::where('handle', $handle)->firstOrFail();
 
         return $this->roles()->save($role);
     }
@@ -71,13 +71,13 @@ trait HasRole {
     /**
      * Detach role to user
      *
-     * @param $name
+     * @param $handle
      * @return Object|Boolean
      */
-    public function detachRole($name)
+    public function detachRole($handle)
     {
-        if($this->hasRole($name)) {
-            $role = Role::where('name', $name)->firstOrFail();
+        if($this->hasRole($handle)) {
+            $role = Role::where('handle', $handle)->firstOrFail();
             return $this->roles()->detach($role);
         }
         return false;
