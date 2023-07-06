@@ -22,7 +22,7 @@
     ],
      "autoload": {
         "psr-4": {
-            "Echods\\Roles\\": "src/Echods/Roles"
+            "Echods\\Roles\\": "src"
         }
     },
     "extra": {
