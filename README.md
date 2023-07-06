@@ -12,6 +12,14 @@ composer require echods/roles
 
 For Laravel version less than 5.8 please use tag branch 0.9.8
 
+## Upgrading from 1.0.4 to 1.1.0
+
+Making the shift to use handle instead of name. A name attribute was added for backwards compatibility hopefully to help. To upgrade don't forget to run the following:
+
+```
+$ php artisan migrate
+```
+
 ## Publish config file
 
 ```
