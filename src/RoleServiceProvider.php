@@ -15,16 +15,15 @@ class RoleServiceProvider extends ServiceProvider
     public function boot()
     {
         // Load migrations for roles
-        $this->loadMigrationsFrom( __DIR__. '/../../migrations' );
+        $this->loadMigrationsFrom( __DIR__. '/../database/migrations' );
 
         // Publish config
         $this->publishes([
-            __DIR__ . '/../../config/roles.php' => config_path('roles.php'),
+            __DIR__ . '/../config/roles.php' => config_path('roles.php'),
         ], 'config');
 
         // Commands
         if ($this->app->runningInConsole()) {
-
             $this->commands([
                 GenerateRoles::class
             ]);

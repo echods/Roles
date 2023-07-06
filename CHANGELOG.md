@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
 - Add the middleware for routing.
 - Add console command to generate role as opposed to config.
 
+## [1.1.2] - 2023-06-06
+
+### Fixed
+- Reorganizing folder structure to adhere to guidelines.
+
 ## [1.1.1] - 2023-06-05
 
 ### Fixed
