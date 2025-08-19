@@ -15,7 +15,7 @@ class ModifyRolesNameToHandleColumn extends Migration
     {
         if (Schema::hasColumn('roles', 'name')) {
             Schema::table('roles', function (Blueprint $table) {
-                $table->renameColumn('name', 'handle');
+                $table->renameColumn('name', 'handle')->unique();
             });
         }
     }

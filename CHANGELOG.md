@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 - Add the middleware for routing.
 - Add console command to generate role as opposed to config.
 
+### Fixed
+- Fix handle on roles table to be unique.
+- Fix call to name attribute for backwards compatible.
+
 ## [1.1.2] - 2023-06-06
 
 ### Fixed
