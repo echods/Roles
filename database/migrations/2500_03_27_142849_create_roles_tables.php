@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
 
-            if(config('roles.migrations.useBigInteger')) {
+            if(config('roles.database.migrations.use_big_integer')) {
                 $table->bigIncrements('id');
             } else {
                 $table->increments('id');
