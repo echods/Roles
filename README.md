@@ -1,6 +1,6 @@
 # Echods Roles
 
-Laravel based roles for Laravel 6+.
+Laravel based roles for Laravel 9+.
 
 ## Installing the package
 
@@ -10,20 +10,24 @@ composer require echods/roles
 
 ## For Laravel < 5.8
 
-For Laravel version less than 5.8 please use tag branch 0.9.8
+[See 1.1 Documentation](https://github.com/echods/Roles/blob/1.1.4/README.md)
 
-## Upgrading from 1.0.4 to 1.1.0
+## Publish config files
 
-Making the shift to use handle instead of name. A name attribute was added for backwards compatibility hopefully to help. To upgrade don't forget to run the following:
-
-```
-$ php artisan migrate
-```
-
-## Publish config file
+Below will publish all files that you can configure.
 
 ```
-$ php artisan vendor:publish --provider="Echods\Roles\RoleServiceProvider" --tag=config
+$ php artisan vendor:publish --tag=roles
+```
+
+Or you can publish these files individually.
+
+```
+$ php artisan vendor:publish --tag=roles-config
+$ php artisan vendor:publish --tag=roles-migrations
+$ php artisan vendor:publish --tag=roles-seeders
+$ php artisan vendor:publish --tag=roles-models
+$ php artisan vendor:publish --tag=roles-traits
 ```
 
 ## Modify config file to set roles
@@ -31,27 +35,35 @@ $ php artisan vendor:publish --provider="Echods\Roles\RoleServiceProvider" --tag
 Add the roles you need for your application and descriptions in the config file. Also change if you would like big integer migrations or note.
 
 ```
-'admin' => [
-        'name' => 'admin',
-        'description' => 'Admin role for all stuff'
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Roles
+    |--------------------------------------------------------------------------
+    |
+    | Here you can setup your default roles to seed your database
+    |
+    */
+    'all' => [
+        [
+            'handle' => 'admin',
+            'description' => 'Administrator role with full access'
+        ],
+        [
+            'handle' => 'editor',
+            'description' => 'Editor role with content management access'
+        ],
+        [
+            'handle' => 'user',
+            'description' => 'Basic user role with limited access'
+        ],
     ],
-
-    'editor' => [
-        'name' => 'editor',
-        'description' => 'Editor role for all stuff'
-    ]
-],
-
-'migrations' => [
-
-    'useBigInteger' => true
-
-]
+    ...
 ```
 
-## Run migrations
-
-Run migrations for roles table and role_user to be created.
 
 ```
 $ php artisan migrate
@@ -59,10 +71,16 @@ $ php artisan migrate
 
 ## Run setup for roles
 
-This will fill the database with roles from the config file.
+This will fill the database with roles from the config file. If you published the seeder then simply run:
 
 ```
-$ php artisan roles:generate
+$ php artisan db:seed --class=RolesSeeder
+```
+
+If you did not publish the seeder then run the following:
+
+```
+$ php artisan db:seed --class="EchoDS\\\\Roles\\\\Database\\\\Seeders\\\\RolesSeeder"
 ```
 
 ## HasRole Trait
