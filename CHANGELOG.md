@@ -3,10 +3,18 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- [TODO] - Add the middleware for routing.
+- [TODO] - Add config options to rest of application
+
+## [2.0.0] - 2025-08-20
 
 ### Added
-- Add the middleware for routing.
-- Add console command to generate role as opposed to config.
+- Add seeder to generate role as opposed to config.
+- Added all files publishable for model, trait, migrations
+
+### Fixed
+- Fix handle on roles table to be unique.
+- Fix call to name attribute for backwards compatible.
 
 ## [1.1.2] - 2023-06-06
 
